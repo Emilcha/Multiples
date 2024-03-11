@@ -1,17 +1,12 @@
 // Multiples.cpp
 // 
-
 #include <iostream>
-#include <chrono>
+#include "Timer.h"
 
-
-int main()
+void multiples(int n)
 {
-    int input{0};
-    std::cin >> input;
-
-    auto start = std::chrono::high_resolution_clock::now();
-    for (int i{ 0 }; i <= input; i++)
+    Timer time;
+    for (int i{ 1 }; i <= n; i++)
     {
         std::cout << "Multiples of " << i << " are : |";
         for (int j{ 1 }; j <= i; j++)
@@ -23,8 +18,11 @@ int main()
         }
         std::cout << std::endl;
     }
-    auto end = std::chrono::high_resolution_clock::now();
+}
 
-    std::chrono::duration<double> duration = end - start;
-    std::cout << duration.count() << "sec for " << input << std::endl;
+int main()
+{
+    int input{0};
+    std::cin >> input;
+    multiples(input);
 }
